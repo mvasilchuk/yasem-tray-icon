@@ -1,0 +1,12 @@
+#ifndef TRAYICON_GLOBAL_H
+#define TRAYICON_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(TRAYICON_LIBRARY)
+#  define TRAYICONSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define TRAYICONSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // TRAYICON_GLOBAL_H

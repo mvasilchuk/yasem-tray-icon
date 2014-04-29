@@ -1,0 +1,6 @@
+{
+  "name":"Tray icon plugin",
+  "version": "0.1",
+  "id": "tray-icon",
+  "roles": ["tray-icon"]
+}
