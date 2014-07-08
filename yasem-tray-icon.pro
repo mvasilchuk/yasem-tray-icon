@@ -15,7 +15,7 @@ CONFIG += C++11
 
 DEFINES += TRAYICON_LIBRARY
 
-INCLUDEPATH += ../yasem-core
+INCLUDEPATH += ../../yasem-core
 
 SOURCES += trayicon.cpp
 
@@ -27,7 +27,7 @@ unix {
     INSTALLS += target
 }
 
-include(../common.pri)
+include(../../common.pri)
 DESTDIR = $$DEFAULT_PLUGIN_DIR
 
 OTHER_FILES += \
