@@ -20,6 +20,7 @@ class TRAYICONSHARED_EXPORT TrayIcon: public QObject, public virtual Plugin
     Q_CLASSINFO("description", "Tray icon plugin for YASEM")
 public:
     TrayIcon();
+    ~TrayIcon();
 
     // Plugin interface
 public:

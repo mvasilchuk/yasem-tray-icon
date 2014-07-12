@@ -6,6 +6,11 @@ TrayIcon::TrayIcon()
 {
 }
 
+TrayIcon::~TrayIcon()
+{
+    trayIcon->hide();
+}
+
 PLUGIN_ERROR_CODES TrayIcon::initialize()
 {
     trayIcon = new QSystemTrayIcon();
