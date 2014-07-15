@@ -8,7 +8,9 @@ TrayIcon::TrayIcon()
 
 TrayIcon::~TrayIcon()
 {
-    trayIcon->hide();
+    #ifdef Q_OS_WIN
+        trayIcon->hide();
+    #endif
 }
 
 PLUGIN_ERROR_CODES TrayIcon::initialize()
@@ -24,4 +26,14 @@ PLUGIN_ERROR_CODES TrayIcon::initialize()
 PLUGIN_ERROR_CODES TrayIcon::deinitialize()
 {
     return PLUGIN_ERROR_NO_ERROR;
+}
+
+
+void yasem::TrayIcon::register_dependencies()
+{
+}
+
+void yasem::TrayIcon::register_roles()
+{
+    register_role(ROLE_UNSPECIFIED);
 }

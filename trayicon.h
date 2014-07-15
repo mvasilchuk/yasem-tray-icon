@@ -29,6 +29,11 @@ public:
 
 protected:
     QSystemTrayIcon* trayIcon;
+
+    // Plugin interface
+public:
+    void register_dependencies();
+    void register_roles();
 };
 
 }
