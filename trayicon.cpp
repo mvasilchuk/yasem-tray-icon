@@ -2,8 +2,11 @@
 
 using namespace yasem;
 
-TrayIcon::TrayIcon()
+TrayIcon::TrayIcon(QObject* parent)
+    : QObject(parent)
 {
+    trayIcon = new QSystemTrayIcon();
+    menu = new QMenu();
 }
 
 TrayIcon::~TrayIcon()
@@ -15,10 +18,13 @@ TrayIcon::~TrayIcon()
 
 PLUGIN_ERROR_CODES TrayIcon::initialize()
 {
-    trayIcon = new QSystemTrayIcon();
-
     trayIcon->setIcon(QIcon(":/tray-icon/icons/icon.png"));
     trayIcon->show();
+
+    trayIcon->setContextMenu(menu);
+
+    QAction* exitAction = menu->addAction(tr("Exit"));
+    connect(exitAction, &QAction::triggered, qApp, QCoreApplication::quit);
 
     return PLUGIN_ERROR_NO_ERROR;
 }

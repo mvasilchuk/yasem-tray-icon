@@ -7,6 +7,7 @@
 
 #include <QObject>
 #include <QSystemTrayIcon>
+#include <QMenu>
 
 namespace yasem {
 
@@ -19,8 +20,8 @@ class TRAYICONSHARED_EXPORT TrayIcon: public QObject, public virtual Plugin
     Q_CLASSINFO("author", "Maxim Vasilchuk")
     Q_CLASSINFO("description", "Tray icon plugin for YASEM")
 public:
-    TrayIcon();
-    ~TrayIcon();
+    TrayIcon(QObject* parent = 0);
+    virtual ~TrayIcon();
 
     // Plugin interface
 public:
@@ -29,6 +30,7 @@ public:
 
 protected:
     QSystemTrayIcon* trayIcon;
+    QMenu* menu;
 
     // Plugin interface
 public:
