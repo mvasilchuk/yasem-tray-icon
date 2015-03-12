@@ -5,30 +5,28 @@
 #-------------------------------------------------
 
 VERSION = 0.1.0
-
-QT       += core gui widgets
-
 TARGET = yasem-tray-icon
 TEMPLATE = lib
 
-CONFIG += C++11
+include($${top_srcdir}/common.pri)
+
+QT       += core gui widgets
 
 DEFINES += TRAYICON_LIBRARY
 
-INCLUDEPATH += ../../yasem-core
+SOURCES += \
+    trayiconplugin.cpp \
+    trayiconobject.cpp
 
-SOURCES += trayicon.cpp
-
-HEADERS += trayicon.h\
-        trayicon_global.h
+HEADERS +=\
+    trayicon_global.h \
+    trayiconplugin.h \
+    trayiconobject.h
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
-
-include(../../common.pri)
-DESTDIR = $$DEFAULT_PLUGIN_DIR
 
 OTHER_FILES += \
     metadata.json

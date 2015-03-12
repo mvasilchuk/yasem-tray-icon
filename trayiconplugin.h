@@ -1,9 +1,9 @@
 #ifndef TRAYICON_H
 #define TRAYICON_H
 
-#include "stbplugin.h"
-
 #include "trayicon_global.h"
+
+#include "plugin.h"
 
 #include <QObject>
 #include <QSystemTrayIcon>
@@ -11,7 +11,7 @@
 
 namespace yasem {
 
-class TRAYICONSHARED_EXPORT TrayIcon: public QObject, public virtual Plugin
+class TRAYICONSHARED_EXPORT TrayIcon: public Plugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.mvas.yasem.TrayIconPlugin/1.0" FILE "metadata.json")
@@ -22,15 +22,6 @@ class TRAYICONSHARED_EXPORT TrayIcon: public QObject, public virtual Plugin
 public:
     TrayIcon(QObject* parent = 0);
     virtual ~TrayIcon();
-
-    // Plugin interface
-public:
-    PLUGIN_ERROR_CODES initialize();
-    PLUGIN_ERROR_CODES deinitialize();
-
-protected:
-    QSystemTrayIcon* trayIcon;
-    QMenu* menu;
 
     // Plugin interface
 public:
