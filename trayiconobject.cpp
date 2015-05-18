@@ -15,14 +15,15 @@ TrayIconObject::TrayIconObject(Plugin* plugin):
 TrayIconObject::~TrayIconObject()
 {
 #ifdef Q_OS_WIN
-    if(m_tray_icon != NULL && m_tray_icon->isVisible())
-        m_tray_icon->hide();
+    // TODO: Fix crash here
+    //if(m_tray_icon != NULL && m_tray_icon->isVisible())
+    //    m_tray_icon->hide();
 #endif
 }
 
 PluginObjectResult yasem::TrayIconObject::init()
 {
-    m_tray_icon = new QSystemTrayIcon(qApp);
+    m_tray_icon = new QSystemTrayIcon();
     m_tray_icon->setIcon(QIcon(":/tray-icon/icons/icon.png"));
     m_tray_icon->show();
 
@@ -32,7 +33,6 @@ PluginObjectResult yasem::TrayIconObject::init()
     connect(exitAction, &QAction::triggered, qApp, QCoreApplication::quit);
 
     m_tray_icon->setContextMenu(m_menu);
-
 
     return PLUGIN_OBJECT_RESULT_OK;
 }
