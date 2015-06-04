@@ -14,11 +14,8 @@ TrayIconObject::TrayIconObject(Plugin* plugin):
 
 TrayIconObject::~TrayIconObject()
 {
-#ifdef Q_OS_WIN
-    // TODO: Fix crash here
-    //if(m_tray_icon != NULL && m_tray_icon->isVisible())
-    //    m_tray_icon->hide();
-#endif
+    if(m_tray_icon)
+        m_tray_icon->deleteLater();
 }
 
 PluginObjectResult yasem::TrayIconObject::init()
