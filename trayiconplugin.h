@@ -18,7 +18,9 @@ class TRAYICONSHARED_EXPORT TrayIcon: public Plugin
     Q_INTERFACES(yasem::Plugin)
 
     Q_CLASSINFO("author", "Maxim Vasilchuk")
-    Q_CLASSINFO("description", "Tray icon plugin for YASEM")
+    Q_CLASSINFO("description", "Tray icon")
+    Q_CLASSINFO("version", MODULE_VERSION)
+    Q_CLASSINFO("revision", GIT_VERSION)
 public:
     TrayIcon(QObject* parent = 0);
     virtual ~TrayIcon();
