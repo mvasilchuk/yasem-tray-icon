@@ -8,17 +8,17 @@
 
 namespace yasem {
 
-class TrayIconObject: public AbstractPluginObject
+class TrayIconObject: public SDK::AbstractPluginObject
 {
     Q_OBJECT
 public:
-    explicit TrayIconObject(Plugin* plugin);
+    explicit TrayIconObject(SDK::Plugin* plugin);
     virtual ~TrayIconObject();
 
     // AbstractPluginObject interface
 public:
-    PluginObjectResult init();
-    PluginObjectResult deinit();
+    SDK::PluginObjectResult init();
+    SDK::PluginObjectResult deinit();
 
 protected:
     QSystemTrayIcon* m_tray_icon;

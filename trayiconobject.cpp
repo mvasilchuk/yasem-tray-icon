@@ -4,8 +4,8 @@
 
 using namespace yasem;
 
-TrayIconObject::TrayIconObject(Plugin* plugin):
-    AbstractPluginObject(plugin),
+TrayIconObject::TrayIconObject(SDK::Plugin* plugin):
+    SDK::AbstractPluginObject(plugin),
     m_tray_icon(NULL),
     m_menu(NULL)
 {
@@ -18,7 +18,7 @@ TrayIconObject::~TrayIconObject()
         m_tray_icon->deleteLater();
 }
 
-PluginObjectResult yasem::TrayIconObject::init()
+SDK::PluginObjectResult yasem::TrayIconObject::init()
 {
     m_tray_icon = new QSystemTrayIcon();
     m_tray_icon->setIcon(QIcon(":/tray-icon/icons/icon.png"));
@@ -31,10 +31,10 @@ PluginObjectResult yasem::TrayIconObject::init()
 
     m_tray_icon->setContextMenu(m_menu);
 
-    return PLUGIN_OBJECT_RESULT_OK;
+    return SDK::PLUGIN_OBJECT_RESULT_OK;
 }
 
-PluginObjectResult yasem::TrayIconObject::deinit()
+SDK::PluginObjectResult yasem::TrayIconObject::deinit()
 {
-    return PLUGIN_OBJECT_RESULT_OK;
+    return SDK::PLUGIN_OBJECT_RESULT_OK;
 }

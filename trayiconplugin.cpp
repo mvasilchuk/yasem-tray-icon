@@ -4,7 +4,7 @@
 using namespace yasem;
 
 TrayIcon::TrayIcon(QObject* parent):
-    Plugin(parent)
+    SDK::Plugin(parent)
 {
 
 }
@@ -21,5 +21,5 @@ void yasem::TrayIcon::register_dependencies()
 
 void yasem::TrayIcon::register_roles()
 {
-    register_role(ROLE_UNSPECIFIED, new TrayIconObject(this));
+    register_role(SDK::ROLE_UNSPECIFIED, new TrayIconObject(this));
 }
