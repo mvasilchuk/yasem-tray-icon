@@ -1,4 +1,5 @@
 #include "trayiconobject.h"
+#include "macros.h"
 
 #include <QCoreApplication>
 
@@ -14,8 +15,12 @@ TrayIconObject::TrayIconObject(SDK::Plugin* plugin):
 
 TrayIconObject::~TrayIconObject()
 {
+    STUB();
     if(m_tray_icon)
         m_tray_icon->deleteLater();
+
+    if(m_menu)
+        m_menu->deleteLater();
 }
 
 SDK::PluginObjectResult yasem::TrayIconObject::init()
